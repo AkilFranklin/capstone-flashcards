@@ -51,7 +51,7 @@ function Home() {
       </button>
 
       <Switch>
-        <Route path="/decks/:deckId/study">
+        <Route exact path="/decks/:deckId/study">
           <DeckStudy />
           {/* <DeckStudy currentDeck={currentDeck}/> */}
         </Route>
@@ -60,7 +60,7 @@ function Home() {
           <DeckCreate createDeck={createDeck} />
         </Route>
 
-        <Route path="/decks/:deckId/edit">
+        <Route exact path="/decks/:deckId/edit">
           <DeckEdit />
         </Route>
 
@@ -76,7 +76,7 @@ function Home() {
           <CardAdd />
         </Route>
 
-        <Route>
+        <Route exact path="/">
           <DeckList
             decks={decks}
             setCurrentDeck={setCurrentDeck}
@@ -84,7 +84,7 @@ function Home() {
           />
         </Route>
 
-        <Route>
+        <Route path="*">
             <NotFound />
           </Route>
       </Switch>

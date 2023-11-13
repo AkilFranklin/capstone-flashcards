@@ -58,14 +58,16 @@ function CardList() {
         </div>
         <h2>Cards</h2>
         <table>
-          {cards.map((card, index) => (
-            <CardView
-              card={card}
-              key={index}
-              index={index}
-              deleteCard={() => handleDelete(card)}
-            />
-          ))}
+          <tbody>
+            {cards.map((card, index) => (
+              <CardView
+                card={card}
+                key={index}
+                index={index}
+                deleteCard={() => handleDelete(card)}
+              />
+            ))}
+          </tbody>
         </table>
       </div>
     );

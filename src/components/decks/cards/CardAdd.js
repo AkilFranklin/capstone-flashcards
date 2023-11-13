@@ -51,7 +51,8 @@ function CardAdd() {
   return (
     <form name="addCard" onSubmit={handleEdit}>
       <fieldset>
-        <legend>{currentDeck.name}: Add Card</legend>
+        <legend>{currentDeck.name}</legend>
+        <h3>Add Card</h3>
         <div>
           <label htmlFor="front">
             Front

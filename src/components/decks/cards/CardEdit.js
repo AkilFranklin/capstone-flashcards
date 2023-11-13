@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useHistory, useParams } from "react-router-dom/cjs/react-router-dom.min";
+import { useHistory, useParams, useRouteMatch } from "react-router-dom/cjs/react-router-dom.min";
 import { readCard, readDeck, updateCard, updateDeck } from "../../../utils/api";
 
 function CardEdit() {

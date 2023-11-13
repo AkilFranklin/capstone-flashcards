@@ -27,7 +27,6 @@ function CardList() {
     async function loadCards() {
       const response = await readDeck(deckId);
       setCurrentDeck(response);
-      console.log(response);
       setCards(response.cards);
     }
 

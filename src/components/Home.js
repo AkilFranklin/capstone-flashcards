@@ -2,27 +2,21 @@ import React, { useEffect, useState, Fragment } from "react";
 import DeckCreate from "./decks/CreateDeck";
 import DeckList from "./decks/DeckList";
 import CardList from "./decks/cards/CardList";
-import { deleteDeck, listDecks } from "../utils/api";
+import { createDeck, listDecks } from "../utils/api";
 import { Route, Switch } from "react-router-dom/cjs/react-router-dom.min";
 import DeckStudy from "./decks/DeckStudy";
 import {
-  Link,
   NavLink,
   useRouteMatch,
 } from "react-router-dom/cjs/react-router-dom";
-import { BrowserRouter as Router } from "react-router-dom";
 import NotFound from "../Layout/NotFound";
 import DeckEdit from "./decks/DeckEdit";
-import CardAdd from "./decks/cards/CardAdd";
-import CardEdit from "./decks/cards/CardEdit";
+import CardAddEdit from "./decks/cards/CardAddEdit";
 
 function Home() {
   const [decks, setDecks] = useState([]);
-  const [currentDeck, setCurrentDeck] = useState();
-  const { path, url } = useRouteMatch();
 
-  const createDeck = (newDeck) =>
-    setDecks((currentDecks) => [newDeck, ...currentDecks]);
+  const createNewDeck = (newDeck) => createDeck(newDeck);
 
   useEffect(() => {
     async function loadDecks() {
@@ -53,11 +47,10 @@ function Home() {
       <Switch>
         <Route exact path="/decks/:deckId/study">
           <DeckStudy />
-          {/* <DeckStudy currentDeck={currentDeck}/> */}
         </Route>
 
         <Route exact path="/decks/new">
-          <DeckCreate createDeck={createDeck} />
+          <DeckCreate createDeck={createNewDeck} />
         </Route>
 
         <Route exact path="/decks/:deckId/edit">
@@ -69,17 +62,16 @@ function Home() {
         </Route>
 
         <Route exact path="/decks/:deckId/cards/:cardId/edit">
-          <CardEdit />
+          <CardAddEdit />
         </Route>
 
         <Route exact path="/decks/:deckId/cards/new">
-          <CardAdd />
+          <CardAddEdit />
         </Route>
 
         <Route exact path="/">
           <DeckList
             decks={decks}
-            setCurrentDeck={setCurrentDeck}
             deleteDeck={deleteDeck}
           />
         </Route>

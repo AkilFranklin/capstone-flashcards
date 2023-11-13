@@ -18,7 +18,7 @@ import CardEdit from "./decks/cards/CardEdit";
 
 function Home() {
   const [decks, setDecks] = useState([]);
-  const [currentDeck, setCurrentDeck] = useState({});
+  const [currentDeck, setCurrentDeck] = useState();
   const { path, url } = useRouteMatch();
 
   const createDeck = (newDeck) =>
@@ -52,7 +52,8 @@ function Home() {
 
       <Switch>
         <Route path="/decks/:deckId/study">
-          <DeckStudy currentDeck={currentDeck}/>
+          <DeckStudy />
+          {/* <DeckStudy currentDeck={currentDeck}/> */}
         </Route>
 
         <Route exact path="/decks/new">

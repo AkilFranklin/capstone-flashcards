@@ -4,10 +4,12 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 function CardStudyView({ currentCard, setCurrentCard, cards }) {
   const [showFront, setShowFront] = useState(true);
   const [displayedSide, setDisplayedSide] = useState("");
+  const [wasFlipped, setWasFlipped] = useState(false);
   const [cardIndex, setCardIndex] = useState(0);
   const history = useHistory();
 
   const handleFlipClick = () => {
+    setWasFlipped(true);
     if (showFront) {
       setDisplayedSide(currentCard.back);
       setShowFront(false);
@@ -35,18 +37,28 @@ function CardStudyView({ currentCard, setCurrentCard, cards }) {
   };
 
   
-  if (currentCard) {
+  if (currentCard && wasFlipped) {
     return (
       <div>
         <h3>
           Card {cardIndex + 1} of {cards.length}
         </h3>
-        <p>{showFront ? currentCard.front : currentCard.back}</p>
+        <p>{displayedSide}</p>
         <button onClick={() => handleFlipClick()}>Flip</button>
         <button onClick={() => handleNextClick()}>Next</button>
       </div>
     );
   }
+
+  return (
+    <div>
+      <h3>
+        Card {cardIndex + 1} of {cards.length}
+      </h3>
+      <p>{showFront ? currentCard.front : currentCard.back}</p>
+      <button onClick={() => handleFlipClick()}>Flip</button>
+    </div>
+  );
 }
 
 export default CardStudyView;

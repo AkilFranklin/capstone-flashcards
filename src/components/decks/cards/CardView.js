@@ -9,10 +9,16 @@ function CardView({ card, deleteCard }) {
         <td className="card-back">{card.back}</td>
       </tr>
       <tr>
-      <NavLink to={`/decks/${card.deckId}/cards/${card.id}/edit`}>
+        <td>
+          <NavLink to={`/decks/${card.deckId}/cards/${card.id}/edit`}>
             <button>Edit</button>
           </NavLink>
-        <button className="card-delete-button" onClick={deleteCard}>Delete</button>
+        </td>
+        <td>
+          <button className="card-delete-button" onClick={deleteCard}>
+            Delete
+          </button>
+        </td>
       </tr>
     </tr>
   );

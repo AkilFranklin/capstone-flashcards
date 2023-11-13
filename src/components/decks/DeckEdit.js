@@ -28,7 +28,7 @@ function DeckEdit() {
     updateDeck(currentDeck);
     setCurrentDeck({ ...currentDeck });
     history.push(`/decks/${deckId}`)
-    history.go(0);;
+    history.go(0);
   };
 
   return (

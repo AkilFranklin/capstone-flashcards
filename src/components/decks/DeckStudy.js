@@ -4,7 +4,6 @@ import { NavLink, useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { readDeck } from "../../utils/api";
 
 function DeckStudy() {
-// function DeckStudy({ currentDeck }) {
   const { deckId } = useParams();
   const [cards, setCards] = useState([]);
   const [currentCard, setCurrentCard] = useState({});
@@ -33,23 +32,19 @@ function DeckStudy() {
   if (cards && cards.length > 2) {
     return (
       <div className="deck-study">
-        {/* <h2>{`${currentDeck.name}: Study`}</h2> */}
-        <h2>{`${currentDeck.name}`}</h2>
-        {/* <div> */}
+        <h2>{currentDeck.name}</h2>
           <CardStudyView
             currentCard={currentCard}
             setCurrentCard={setCurrentCard}
             cards={cards}
           />
-        {/* </div> */}
       </div>
     );
   }
 
   return (
     <div>
-      {/* <h2>{`${currentDeck.name}: Study`}</h2> */}
-      <h2>{`${currentDeck.name}`}</h2>
+      <h2>{currentDeck.name}</h2>
       <h3>Not enough cards.</h3>
       <p>You need at least 3 cards to study. There are {currentDeck.length ? currentDeck.length : 0} in this deck.</p>
       <NavLink to={`/decks/${currentDeck.id}/cards/new`}>

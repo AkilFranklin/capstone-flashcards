@@ -4,7 +4,10 @@ import { readDeck, updateDeck } from "../../utils/api";
 
 function DeckEdit() {
   const { deckId } = useParams();
-  const [currentDeck, setCurrentDeck] = useState({});
+  const [currentDeck, setCurrentDeck] = useState({
+    name: "",
+    description: ""
+  });
 
   useEffect(() => {
     async function loadDeck() {

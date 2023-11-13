@@ -44,9 +44,6 @@ function CardList() {
           </NavLink>
           <NavLink
             to={`/decks/${deckId}/study`}
-            // onClick={() => {
-            //   setCurrentDeck(currentDeck);
-            // }}
           >
             <button>Study</button>
           </NavLink>

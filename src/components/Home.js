@@ -1,5 +1,5 @@
 import React, { useEffect, useState, Fragment } from "react";
-import DeckCreate from "./decks/CreateDeck";
+import DeckCreate from "./decks/DeckCreate";
 import DeckList from "./decks/DeckList";
 import CardList from "./decks/cards/CardList";
 import { createDeck, listDecks } from "../utils/api";

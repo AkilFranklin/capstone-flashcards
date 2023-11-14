@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { Breadcrumb } from "react-bootstrap";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { Link, useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 function DeckCreate({ createDeck }) {
   const initialFormState = {
@@ -30,10 +29,10 @@ function DeckCreate({ createDeck }) {
 
   return (
     <div>
-      <Breadcrumb>
-          <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
-          <Breadcrumb.Item active>Create Deck</Breadcrumb.Item>
-        </Breadcrumb>
+      <h5 style={{ backgroundColor: "#f1f1f1" }}>
+        <Link to="/">Home</Link> /{" "}
+        Create Deck
+      </h5>
       <form name="createDeck" onSubmit={handleCreate}>
         <fieldset>
           <legend>Create Deck</legend>

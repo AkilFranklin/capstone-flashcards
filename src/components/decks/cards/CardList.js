@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import CardView from "./cardView";
 import {
+  Link,
   NavLink,
   useHistory,
   useParams,
 } from "react-router-dom/cjs/react-router-dom.min";
 import { deleteCard, readDeck } from "../../../utils/api";
-import { Breadcrumb } from "react-bootstrap";
 
 function CardList() {
   const [cards, setCards] = useState([]);
@@ -37,10 +37,10 @@ function CardList() {
   if (cards.length > 0) {
     return (
       <div className="card-list">
-        <Breadcrumb>
-          <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
-          <Breadcrumb.Item active>{currentDeck.name}</Breadcrumb.Item>
-        </Breadcrumb>
+        <h5 style={{ backgroundColor: "#f1f1f1" }}>
+        <Link to="/">Home</Link> /{" "}
+        {currentDeck.name}
+      </h5>
         <div>
           <h3>{currentDeck.name}</h3>
           <h5>{currentDeck.description}</h5>

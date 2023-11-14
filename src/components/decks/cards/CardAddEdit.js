@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import {
+  Link,
   useHistory,
   useParams,
   useRouteMatch,
 } from "react-router-dom/cjs/react-router-dom.min";
 import { createCard, readCard, readDeck, updateCard } from "../../../utils/api";
-import { Breadcrumb } from "react-bootstrap";
 
 function CardAddEdit() {
   // path: /decks/:deckId/cards/:cardId/edit
@@ -70,15 +70,11 @@ function CardAddEdit() {
 
   return (
     <div>
-      <Breadcrumb>
-        <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
-        <Breadcrumb.Item href={`/decks/${currentDeck.id}`}>
-          {currentDeck.name}
-        </Breadcrumb.Item>
-        <Breadcrumb.Item active>
-          {addNewCard ? "Add Card" : `Edit Card ${cardId}`}
-        </Breadcrumb.Item>
-      </Breadcrumb>
+      <h5 style={{ backgroundColor: "#f1f1f1" }}>
+        <Link to="/">Home</Link> /{" "}
+        <Link to={`/decks/${currentDeck.id}`}>{currentDeck.name}</Link> /{" "}
+        {addNewCard ? "Add Card" : `Edit Card ${cardId}`}
+      </h5>
       <form name="addEditCard" onSubmit={handleSubmit}>
         <h3>{currentDeck.name}</h3>
         <fieldset>

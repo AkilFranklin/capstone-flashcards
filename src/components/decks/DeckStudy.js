@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import CardStudyView from "./cards/cardStudyView";
-import { NavLink, useParams } from "react-router-dom/cjs/react-router-dom.min";
+import { Link, NavLink, useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { readDeck } from "../../utils/api";
-import Breadcrumb from "react-bootstrap/Breadcrumb";
 
 function DeckStudy() {
   const { deckId } = useParams();
@@ -33,14 +32,10 @@ function DeckStudy() {
   if (cards && cards.length > 2) {
     return (
       <div className="deck-study">
-        <Breadcrumb>
-          <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
-          <Breadcrumb.Item href={`/decks/${currentDeck.id}`}>
-          {currentDeck.name}
-          </Breadcrumb.Item>
-          <Breadcrumb.Item active>Study</Breadcrumb.Item>
-        </Breadcrumb>
-        <h2>{currentDeck.name}</h2>
+        <h5 style={{backgroundColor: "#f1f1f1"}}>
+        <Link to="/">Home</Link> / <Link to={`/decks/${currentDeck.id}`}>{currentDeck.name}</Link> / Study
+        </h5>
+        <h2>Study: {currentDeck.name}</h2>
         <CardStudyView
           currentCard={currentCard}
           setCurrentCard={setCurrentCard}
@@ -52,7 +47,10 @@ function DeckStudy() {
 
   return (
     <div>
-      <h2>{currentDeck.name}</h2>
+      <h5 style={{backgroundColor: "#f1f1f1"}}>
+        <Link to="/">Home</Link> / <Link to={`/decks/${currentDeck.id}`}>{currentDeck.name}</Link> / Study
+        </h5>
+      <h2>Study: ${currentDeck.name}</h2>
       <h3>Not enough cards.</h3>
       <p>
         You need at least 3 cards to study. There are{" "}

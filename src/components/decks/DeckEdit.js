@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import {
+  Link,
   useHistory,
   useParams,
 } from "react-router-dom/cjs/react-router-dom.min";
 import { readDeck, updateDeck } from "../../utils/api";
-import { Breadcrumb } from "react-bootstrap";
 
 function DeckEdit() {
   const { deckId } = useParams();
@@ -45,13 +45,11 @@ function DeckEdit() {
 
   return (
     <div>
-      <Breadcrumb>
-        <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
-        <Breadcrumb.Item href={`/decks/${deckId}`}>
-          {currentDeck.name}
-        </Breadcrumb.Item>
-        <Breadcrumb.Item active>Edit Deck</Breadcrumb.Item>
-      </Breadcrumb>
+      <h5 style={{ backgroundColor: "#f1f1f1" }}>
+        <Link to="/">Home</Link> /{" "}
+        <Link to={`/decks/${deckId}`}>{currentDeck.name}</Link> /{" "}
+        Edit Deck
+      </h5>
       <form name="editDeck" onSubmit={handleEdit}>
         <fieldset>
           <legend>Edit Deck</legend>

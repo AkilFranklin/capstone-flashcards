@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import CardView from "./CardView";
+import CardView from "./cardView";
 import {
   NavLink,
   useHistory,

@@ -1,17 +1,17 @@
 import React, { useEffect, useState, Fragment } from "react";
-import DeckCreate from "./decks/DeckCreate";
-import DeckList from "./decks/DeckList";
-import CardList from "./decks/cards/CardList";
+import DeckCreate from "./decks/deckCreate";
+import DeckList from "./decks/deckList";
+import CardList from "./decks/cards/cardList";
 import { createDeck, listDecks } from "../utils/api";
 import { Route, Switch } from "react-router-dom/cjs/react-router-dom.min";
-import DeckStudy from "./decks/DeckStudy";
+import DeckStudy from "./decks/deckStudy";
 import {
   NavLink,
   useRouteMatch,
 } from "react-router-dom/cjs/react-router-dom";
 import NotFound from "../Layout/NotFound";
-import DeckEdit from "./decks/DeckEdit";
-import CardAddEdit from "./decks/cards/CardAddEdit";
+import DeckEdit from "./decks/deckEdit";
+import CardAddEdit from "./decks/cards/cardAddEdit";
 
 function Home() {
   const [decks, setDecks] = useState([]);

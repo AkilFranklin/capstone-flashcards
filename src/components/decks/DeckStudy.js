@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import CardStudyView from "./cards/CardStudyView";
+import CardStudyView from "./cards/cardStudyView";
 import { NavLink, useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { readDeck } from "../../utils/api";
 import Breadcrumb from "react-bootstrap/Breadcrumb";

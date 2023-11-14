@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import React, { Fragment, useState } from "react";
 import Header from "./Header";
 import NotFound from "./NotFound";
 import { Route } from "react-router-dom/cjs/react-router-dom";
 import { Switch } from "react-router-dom/cjs/react-router-dom.min";
-import Home from "../components/Home";
+import Home from "../components/home";
 
 function Layout() {
   return (
-    <>
+    <Fragment>
       <Header />
       <Switch>
         <div className="container">
@@ -17,7 +17,7 @@ function Layout() {
           
         </div>
       </Switch>
-    </>
+    </Fragment>
   );
 }
 

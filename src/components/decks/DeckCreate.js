@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { Breadcrumb } from "react-bootstrap";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 function DeckCreate({ createDeck }) {
   const initialFormState = {
@@ -20,45 +22,57 @@ function DeckCreate({ createDeck }) {
     setFormData({ ...initialFormState });
   };
 
+  const history = useHistory();
+  const handleCancel = (event) => {
+    event.preventDefault();
+    history.push("/");
+  };
+
   return (
-    <form name="createDeck" onSubmit={handleCreate}>
-      <fieldset>
-        <legend>Create Deck</legend>
-        <div>
-          <label htmlFor="name">
-            Name:
-            <input
-              name="name"
-              type="text"
-              id="name"
-              required={true}
-              onChange={handleChange}
-              value={formData.name}
-              placeholder="Deck Name"
-            ></input>
-          </label>
-        </div>
-        <div>
-          <label htmlFor="description">
-            Description:
-            <textarea
-              name="description"
-              type="textarea"
-              rows={4}
-              id="description"
-              required={true}
-              onChange={handleChange}
-              value={formData.description}
-              placeholder="Brief description of the deck"
-            ></textarea>
-          </label>
-        </div>
-        <div>
-          <button>Cancel</button>
-          <button type="submit">Submit</button>
-        </div>
-      </fieldset>
-    </form>
+    <div>
+      <Breadcrumb>
+          <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
+          <Breadcrumb.Item active>Create Deck</Breadcrumb.Item>
+        </Breadcrumb>
+      <form name="createDeck" onSubmit={handleCreate}>
+        <fieldset>
+          <legend>Create Deck</legend>
+          <div>
+            <label htmlFor="name">
+              Name:
+              <input
+                name="name"
+                type="text"
+                id="name"
+                required={true}
+                onChange={handleChange}
+                value={formData.name}
+                placeholder="Deck Name"
+              ></input>
+            </label>
+          </div>
+          <div>
+            <label htmlFor="description">
+              Description:
+              <textarea
+                name="description"
+                type="textarea"
+                rows={4}
+                id="description"
+                required={true}
+                onChange={handleChange}
+                value={formData.description}
+                placeholder="Brief description of the deck"
+              ></textarea>
+            </label>
+          </div>
+          <div>
+            <button onClick={handleCancel}>Cancel</button>
+            <button type="submit">Submit</button>
+          </div>
+        </fieldset>
+      </form>
+    </div>
   );
 }
 

@@ -6,6 +6,7 @@ import {
   useParams,
 } from "react-router-dom/cjs/react-router-dom.min";
 import { deleteCard, readDeck } from "../../../utils/api";
+import { Breadcrumb } from "react-bootstrap";
 
 function CardList() {
   const [cards, setCards] = useState([]);
@@ -36,15 +37,17 @@ function CardList() {
   if (cards.length > 0) {
     return (
       <div className="card-list">
+        <Breadcrumb>
+          <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
+          <Breadcrumb.Item active>{currentDeck.name}</Breadcrumb.Item>
+        </Breadcrumb>
         <div>
           <h3>{currentDeck.name}</h3>
           <h5>{currentDeck.description}</h5>
           <NavLink to={`/decks/${deckId}/edit`}>
             <button>Edit</button>
           </NavLink>
-          <NavLink
-            to={`/decks/${deckId}/study`}
-          >
+          <NavLink to={`/decks/${deckId}/study`}>
             <button>Study</button>
           </NavLink>
           <NavLink to={`/decks/${currentDeck.id}/cards/new`}>

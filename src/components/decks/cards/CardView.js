@@ -6,7 +6,7 @@ function CardView({ card, deleteCard }) {
     <tr>
       <tr>
         <td className="card-front">{card.front}</td>
-        <td className="card-back">{card.back}</td>
+        <td className="card-back" >{card.back}</td>
       </tr>
       <tr>
         <td>
@@ -14,7 +14,7 @@ function CardView({ card, deleteCard }) {
             <button>Edit</button>
           </NavLink>
         </td>
-        <td>
+        <td >
           <button className="card-delete-button" onClick={deleteCard}>
             Delete
           </button>

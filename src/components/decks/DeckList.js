@@ -1,5 +1,5 @@
 import React from "react";
-import DeckView from "./deckView";
+import DeckView from "./DeckView";
 
 function DeckList({ decks, deleteDeck }) {
   if (decks) {

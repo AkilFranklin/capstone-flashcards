@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import CardStudyView from "./cards/cardStudyView";
+import CardStudyView from "./cards/CardStudyView";
 import { Link, NavLink, useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { readDeck } from "../../utils/api";
 
